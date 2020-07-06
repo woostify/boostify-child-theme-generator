@@ -1,0 +1,51 @@
+.boostify-child-theme-generator {
+  margin: 20px 15px;
+  background-color: #fff;
+  padding: 40px 15px;
+  font-family: Roboto, Arial, Helvetica, Verdana, sans-serif;
+}
+
+.boostify-child-theme-generator .header {
+  text-align: center;
+  margin-bottom: 40px;
+}
+
+.boostify-child-theme-generator .header .heading {
+  color: #556068;
+  font-size: 23px;
+}
+
+.boostify-child-theme-generator .boostify-form-generator {
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.boostify-child-theme-generator .form-group {
+  margin-bottom: 20px;
+}
+
+.boostify-child-theme-generator .form-group .form-label {
+  display: block;
+  margin-bottom: 8px;
+  font-size: 14px;
+  color: #6d7882;
+}
+
+.boostify-child-theme-generator .form-group .form-input {
+  min-height: 50px;
+  width: 100%;
+  border-radius: 3px;
+  border-color: #d5dadf;
+}
+
+.boostify-child-theme-generator .btn-generator {
+  background: #1346af;
+  color: #fff;
+  font-weight: 500;
+  text-transform: uppercase;
+  height: 45px;
+  padding: 5px 20px;
+  border: none;
+  border-radius: 3px;
+  cursor: pointer;
+}
