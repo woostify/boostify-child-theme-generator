@@ -55,14 +55,14 @@ class Admin {
 	public function load_admin_style() {
 		$suffix = ( defined( 'SCRIPT_DEBUG' ) && SCRIPT_DEBUG ) ? '' : '.min';
 		wp_enqueue_style(
-			'boostify-child-theme-generator',
+			'boostify-admin-child-theme-generator',
 			BOOSTIFY_GENERATOR_URL . 'assets/css/style.css',
 			array(),
 			BOOSTIFY_GENERATOR_VER
 		);
 
 		wp_enqueue_script(
-			'boostify-child-theme-generator',
+			'boostify-admin-child-theme-generator',
 			BOOSTIFY_GENERATOR_URL . 'assets/js/generator' . $suffix . '.js',
 			array( 'jquery' ),
 			BOOSTIFY_GENERATOR_VER,
@@ -75,7 +75,7 @@ class Admin {
 		);
 
 		wp_localize_script(
-			'boostify-child-theme-generator',
+			'boostify-admin-child-theme-generator',
 			'admin',
 			$admin_vars
 		);
@@ -109,7 +109,7 @@ class Admin {
 			}
 		}
 
-		$styleContent = "/*\n Theme Name: " . $name . "\n" . "Theme URI: https://woostify.com/\n Description: " . $description . "\n" . "Author: " . $author . "\n" . "Author URI: " . $author_uri . "\n" . "Template: woostify\n Version: " . $version . "\n" . "*/\n";
+		$styleContent = "/*\n Theme Name: " . $name . "\n" . " Theme URI: https://woostify.com/\n Description: " . $description . "\n" . " Author: " . $author . "\n" . " Author URI: " . $author_uri . "\n" . " Template: woostify\n Version: " . $version . "\n" . "*/\n";
 		$style_path = '../' . $plugin . 'child-theme/style.css';
 		file_put_contents( $style_path, $styleContent );
 

@@ -13,42 +13,42 @@ msgstr ""
 "X-Poedit-SourceCharset: UTF-8\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
-#: template/child-theme-generator.php:4
+#: inc/class-boostify-child-theme-generator.php:43, template/child-theme-generator.php:4
 msgid "Boostify Child Theme Generator"
 msgstr ""
 
-#: template/child-theme-generator.php:10
+#: inc/class-boostify-child-theme-generator.php:49, template/child-theme-generator.php:10
 msgid "Child Theme Name"
 msgstr ""
 
-#: template/child-theme-generator.php:15
+#: inc/class-boostify-child-theme-generator.php:54, template/child-theme-generator.php:15
 msgid "Child Theme Version"
 msgstr ""
 
-#: template/child-theme-generator.php:20
+#: inc/class-boostify-child-theme-generator.php:59, template/child-theme-generator.php:20
 msgid "Author"
 msgstr ""
 
-#: template/child-theme-generator.php:25
+#: inc/class-boostify-child-theme-generator.php:64, template/child-theme-generator.php:25
 msgid "Author URI"
 msgstr ""
 
-#: template/child-theme-generator.php:30
+#: inc/class-boostify-child-theme-generator.php:69, template/child-theme-generator.php:30
 msgid "Description"
 msgstr ""
 
-#: template/child-theme-generator.php:35
+#: inc/class-boostify-child-theme-generator.php:74, template/child-theme-generator.php:35
 msgid "Folder Name"
 msgstr ""
 
-#: template/child-theme-generator.php:40
+#: inc/class-boostify-child-theme-generator.php:79, template/child-theme-generator.php:40
 msgid "ScreenShort"
 msgstr ""
 
-#: template/child-theme-generator.php:41
+#: inc/class-boostify-child-theme-generator.php:80, template/child-theme-generator.php:41
 msgid "Dimensions: 1200×900 (recommended) or 880×660 / Max. Size: 2 MB"
 msgstr ""
 
-#: template/child-theme-generator.php:45
+#: inc/class-boostify-child-theme-generator.php:84, template/child-theme-generator.php:45
 msgid "Generator"
 msgstr ""
