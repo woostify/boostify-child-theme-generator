@@ -27,7 +27,7 @@ class Boostify_Child_Theme_Generator {
 
 	public function hooks() {
 		add_shortcode( 'boostify_form_generation_child_theme', array( $this, 'form_generation_child_theme' ) );
-		add_action( 'enqueue_scripts', array( $this, 'load_style' ) );
+		add_action( 'wp_enqueue_scripts', array( $this, 'load_style' ) );
 	}
 
 	public function includes() {
@@ -36,6 +36,8 @@ class Boostify_Child_Theme_Generator {
 
 	public function form_generation_child_theme()
 	{
+		$list_theme = get_option( 'list_theme' );
+		$list_theme = explode( ', ', $list_theme );
 		?>
 		<div class="boostify-child-theme-generator">
 			<div class="child-theme-generator">
@@ -73,6 +75,17 @@ class Boostify_Child_Theme_Generator {
 							<div class="form-group">
 								<label for="folder" class="form-label"><?php echo esc_html__( 'Folder Name', 'boostify' ); ?></label>
 								<input type="text" id="folder" name="folder" class="form-input input-folder" placeholder="woostify-child" >
+							</div>
+
+							<div class="form-group">
+								<label for="template" class="form-label"><?php echo esc_html__( 'ScreenShort', 'boostify' ); ?></label>
+								<span class="form-notice small"><?php echo esc_html__( 'Dimensions: 1200×900 (recommended) or 880×660 / Max. Size: 2 MB', 'boostify' ); ?></span>
+								<select name="template" id="template" class="form-input input-template">
+									<?php foreach ( $list_theme as $theme ): ?>
+										<option value="<?php echo esc_attr( $theme ); ?>"><?php echo esc_html( $theme ); ?></option>
+									<?php endforeach ?>
+									
+								</select>
 							</div>
 
 							<div class="form-group">

@@ -35,6 +35,8 @@ class Admin {
 		add_action( 'admin_enqueue_scripts', array( $this, 'load_admin_style' ) );
 		add_action( 'wp_ajax_boostify_generator', array( $this, 'generator' ) );
 		add_action( 'wp_ajax_nopriv_boostify_generator', array( $this, 'generator' ) );
+		add_action( 'admin_init', array( $this, 'register_settings' ) );
+		add_action( 'rest_api_init', array( $this, 'register_settings' ) );
 	}
 
 	// Register Page Setting
@@ -81,6 +83,18 @@ class Admin {
 		);
 	}
 
+	public function register_settings() {
+		register_setting(
+			'generator_setting',
+			'list_theme',
+			array(
+				'type'              => 'string',
+				'show_in_rest'      => true,
+				'sanitize_callback' => 'sanitize_text_field',
+			)
+		);
+	}
+
 	public function generator() {
 		// check_ajax_referer( '_ajax_nonce','generator_nonce' );
 		$name        = ( isset( $_POST['name'] ) && ! empty( $_POST['name'] ) ) ? $_POST['name'] : 'Woostify Child';
@@ -89,6 +103,7 @@ class Admin {
 		$author_uri  = ( isset( $_POST['author_uri'] ) && !empty( $_POST['author_uri'] ) ) ? $_POST['author_uri'] : 'https://woostify.com/';
 		$description = ( isset( $_POST['description'] ) && !empty( $_POST['description'] ) ) ? $_POST['description'] : 'Woostify WordPress theme example child theme.';
 		$folder      = ( isset( $_POST['folder'] ) && ! empty( $_POST['folder'] ) ) ? $_POST['folder'] : 'woostify-child';
+		$template = ( isset( $_POST['template'] ) && ! empty( $_POST['template'] ) ) ? $_POST['template'] : 'woostify';
 		$plugin      = str_replace( home_url( '/' ), '', BOOSTIFY_GENERATOR_URL );
 		$file_path = '../' . $plugin . 'child-theme/';
 
@@ -109,9 +124,16 @@ class Admin {
 			}
 		}
 
-		$styleContent = "/*\n Theme Name: " . $name . "\n" . " Theme URI: https://woostify.com/\n Description: " . $description . "\n" . " Author: " . $author . "\n" . " Author URI: " . $author_uri . "\n" . " Template: woostify\n Version: " . $version . "\n" . "*/\n";
+		$styleContent = "/*\n Theme Name: " . $name . "\n" . " Theme URI: https://woostify.com/\n Description: " . $description . "\n" . " Author: " . $author . "\n" . " Author URI: " . $author_uri . "\n" . " Template: " . $template . "\n Version: " . $version . "\n" . "*/\n";
 		$style_path = '../' . $plugin . 'child-theme/style.css';
 		file_put_contents( $style_path, $styleContent );
+
+		$functionContent = "<?php\n/**\n * " . $name . " Theme functions and definitions\n *\n * @link https://developer.wordpress.org/themes/basics/theme-functions/\n *\n * @package " . $name . " Theme\n * @since " . $version . "\n */\n";
+		$function_path = '../' . $plugin . 'child-theme/functions.php';
+		if ( 'woostify' != $template ) {
+			$functionContent .= "/**\n * Enqueue styles\n */\nfunction enqueue_parent_theme_style() {\nwp_enqueue_style( '" . $template . "-parent-theme-css', get_template_directory_uri() . '/style.css', array(), '" . $version . "', 'all' );\n}\nadd_action( 'wp_enqueue_scripts', 'enqueue_parent_theme_style', 15 );\n";
+		}
+		file_put_contents( $function_path, $functionContent );
 
 		$file_names = array(
 			'functions.php',
@@ -123,6 +145,7 @@ class Admin {
 		$archive_file_name = $folder . '.zip';
 		$this->zip_files_and_download( $file_names, $archive_file_name, $file_path );
 		file_put_contents( $style_path, '' );
+		file_put_contents( $function_path, "<?php\n" );
 		$url = home_url( '/' ) . $plugin . 'child-theme/' . $archive_file_name;
 
 		wp_send_json_success( $url );
