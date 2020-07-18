@@ -13,42 +13,50 @@ msgstr ""
 "X-Poedit-SourceCharset: UTF-8\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
-#: inc/class-boostify-child-theme-generator.php:43, template/child-theme-generator.php:4
+#: inc/class-boostify-child-theme-generator.php:45
 msgid "Boostify Child Theme Generator"
 msgstr ""
 
-#: inc/class-boostify-child-theme-generator.php:49, template/child-theme-generator.php:10
+#: inc/class-boostify-child-theme-generator.php:51
 msgid "Child Theme Name"
 msgstr ""
 
-#: inc/class-boostify-child-theme-generator.php:54, template/child-theme-generator.php:15
+#: inc/class-boostify-child-theme-generator.php:56
 msgid "Child Theme Version"
 msgstr ""
 
-#: inc/class-boostify-child-theme-generator.php:59, template/child-theme-generator.php:20
+#: inc/class-boostify-child-theme-generator.php:61
 msgid "Author"
 msgstr ""
 
-#: inc/class-boostify-child-theme-generator.php:64, template/child-theme-generator.php:25
+#: inc/class-boostify-child-theme-generator.php:66
 msgid "Author URI"
 msgstr ""
 
-#: inc/class-boostify-child-theme-generator.php:69, template/child-theme-generator.php:30
+#: inc/class-boostify-child-theme-generator.php:71
 msgid "Description"
 msgstr ""
 
-#: inc/class-boostify-child-theme-generator.php:74, template/child-theme-generator.php:35
+#: inc/class-boostify-child-theme-generator.php:76
 msgid "Folder Name"
 msgstr ""
 
-#: inc/class-boostify-child-theme-generator.php:79, template/child-theme-generator.php:40
+#: inc/class-boostify-child-theme-generator.php:81, inc/class-boostify-child-theme-generator.php:92
 msgid "ScreenShort"
 msgstr ""
 
-#: inc/class-boostify-child-theme-generator.php:80, template/child-theme-generator.php:41
+#: inc/class-boostify-child-theme-generator.php:82, inc/class-boostify-child-theme-generator.php:93
 msgid "Dimensions: 1200×900 (recommended) or 880×660 / Max. Size: 2 MB"
 msgstr ""
 
-#: inc/class-boostify-child-theme-generator.php:84, template/child-theme-generator.php:45
+#: inc/class-boostify-child-theme-generator.php:97
 msgid "Generator"
+msgstr ""
+
+#: template/child-theme-generator.php:6
+msgid "Settings"
+msgstr ""
+
+#: template/child-theme-generator.php:15
+msgid "List Theme"
 msgstr ""
