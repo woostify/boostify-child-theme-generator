@@ -120,7 +120,7 @@ export const pot = () => {
 				package: info.name,
 			})
 		)
-		.pipe(dest(`languages/boostify-elementor-addon.pot`));
+		.pipe(dest(`languages/boostify-child-theme-generator.pot`));
 };
 
 export const watchForChanges = () => {

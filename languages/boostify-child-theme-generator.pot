@@ -1,0 +1,62 @@
+# Copyright (C) 2020 boostify-child-theme-generator
+# This file is distributed under the same license as the boostify-child-theme-generator package.
+msgid ""
+msgstr ""
+"Project-Id-Version: boostify-child-theme-generator\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Poedit-Basepath: ..\n"
+"X-Poedit-KeywordsList: __;_e;_ex:1,2c;_n:1,2;_n_noop:1,2;_nx:1,2,4c;_nx_noop:1,2,3c;_x:1,2c;esc_attr__;esc_attr_e;esc_attr_x:1,2c;esc_html__;esc_html_e;esc_html_x:1,2c\n"
+"X-Poedit-SearchPath-0: .\n"
+"X-Poedit-SearchPathExcluded-0: *.js\n"
+"X-Poedit-SourceCharset: UTF-8\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#: inc/class-boostify-child-theme-generator.php:45
+msgid "Boostify Child Theme Generator"
+msgstr ""
+
+#: inc/class-boostify-child-theme-generator.php:51
+msgid "Child Theme Name"
+msgstr ""
+
+#: inc/class-boostify-child-theme-generator.php:56
+msgid "Child Theme Version"
+msgstr ""
+
+#: inc/class-boostify-child-theme-generator.php:61
+msgid "Author"
+msgstr ""
+
+#: inc/class-boostify-child-theme-generator.php:66
+msgid "Author URI"
+msgstr ""
+
+#: inc/class-boostify-child-theme-generator.php:71
+msgid "Description"
+msgstr ""
+
+#: inc/class-boostify-child-theme-generator.php:76
+msgid "Folder Name"
+msgstr ""
+
+#: inc/class-boostify-child-theme-generator.php:81, inc/class-boostify-child-theme-generator.php:92
+msgid "ScreenShort"
+msgstr ""
+
+#: inc/class-boostify-child-theme-generator.php:82, inc/class-boostify-child-theme-generator.php:93
+msgid "Dimensions: 1200×900 (recommended) or 880×660 / Max. Size: 2 MB"
+msgstr ""
+
+#: inc/class-boostify-child-theme-generator.php:97
+msgid "Generator"
+msgstr ""
+
+#: template/child-theme-generator.php:6
+msgid "Settings"
+msgstr ""
+
+#: template/child-theme-generator.php:15
+msgid "List Theme"
+msgstr ""
