@@ -28,7 +28,11 @@
   display: block;
   margin-bottom: 8px;
   font-size: 14px;
-  color: #6d7882;
+  color: #1c1c1c;
+}
+
+.boostify-child-theme-generator .form-group .form-label small {
+  display: block;
 }
 
 .boostify-child-theme-generator .form-group .form-input {
@@ -36,6 +40,11 @@
   width: 100%;
   border-radius: 3px;
   border-color: #d5dadf;
+  background-color: #f5f5f5;
+}
+
+.boostify-child-theme-generator .form-group .input-screenshort {
+  padding: 1.5em;
 }
 
 .boostify-child-theme-generator .btn-generator {

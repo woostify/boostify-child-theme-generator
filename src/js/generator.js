@@ -13,8 +13,6 @@
 			var description = $( '.input-description' ).val();
 			var folder = $( '.input-folder' ).val();
 			var template = $( '.input-template' ).val();
-			console.log( template );
-
 			var data = form.serialize();
 			data += '&action=boostify_generator&_ajax_nonce=' + admin.nonce;
 			var formData = new FormData();
@@ -29,7 +27,9 @@
 			formData.append( 'folder', folder );
 			formData.append( '_ajax_nonce', admin.nonce );
 			formData.append( 'action', 'boostify_generator' );
-			formData.append( 'template', template );
+			if ( template != undefined ) {
+				formData.append( 'template', template );
+			}
 			var data     = {
 				action: 'boostify_generator',//boostify_hf_post_admin
 				_ajax_nonce: admin.nonce,

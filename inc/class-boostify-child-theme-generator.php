@@ -36,8 +36,9 @@ class Boostify_Child_Theme_Generator {
 
 	public function form_generation_child_theme()
 	{
-		$list_theme = get_option( 'list_theme' );
-		$list_theme = explode( ', ', $list_theme );
+		$list_theme      = get_option( 'list_theme' );
+		$show_list_theme = get_option( 'show_list_theme' );
+		$list_theme      = explode( ', ', $list_theme );
 		?>
 		<div class="boostify-child-theme-generator">
 			<div class="child-theme-generator">
@@ -76,21 +77,22 @@ class Boostify_Child_Theme_Generator {
 								<label for="folder" class="form-label"><?php echo esc_html__( 'Folder Name', 'boostify' ); ?></label>
 								<input type="text" id="folder" name="folder" class="form-input input-folder" placeholder="woostify-child" >
 							</div>
+							<?php if ( 'show' === $show_list_theme ): ?>
+								<div class="form-group">
+									<label for="template" class="form-label"><?php echo esc_html__( 'Template', 'boostify' ); ?></label>
+									<select name="template" id="template" class="form-input input-template">
+										<?php foreach ( $list_theme as $theme ): ?>
+											<option value="<?php echo esc_attr( $theme ); ?>"><?php echo esc_html( $theme ); ?></option>
+										<?php endforeach ?>
+									</select>
+								</div>
+							<?php endif ?>
 
 							<div class="form-group">
-								<label for="template" class="form-label"><?php echo esc_html__( 'ScreenShort', 'boostify' ); ?></label>
-								<span class="form-notice small"><?php echo esc_html__( 'Dimensions: 1200×900 (recommended) or 880×660 / Max. Size: 2 MB', 'boostify' ); ?></span>
-								<select name="template" id="template" class="form-input input-template">
-									<?php foreach ( $list_theme as $theme ): ?>
-										<option value="<?php echo esc_attr( $theme ); ?>"><?php echo esc_html( $theme ); ?></option>
-									<?php endforeach ?>
-									
-								</select>
-							</div>
-
-							<div class="form-group">
-								<label for="screenshort" class="form-label"><?php echo esc_html__( 'ScreenShort', 'boostify' ); ?></label>
-								<span class="form-notice small"><?php echo esc_html__( 'Dimensions: 1200×900 (recommended) or 880×660 / Max. Size: 2 MB', 'boostify' ); ?></span>
+								<label for="screenshort" class="form-label">
+									<?php echo esc_html__( 'ScreenShort', 'boostify' ); ?>
+									<small class="form-notice small"><?php echo esc_html__( 'Dimensions: 1200×900 (recommended) or 880×660 / Max. Size: 2 MB', 'boostify' ); ?></small>
+								</label>
 								<input type="file" id="screenshort" name="screenshort" class="form-input input-screenshort">
 							</div>
 

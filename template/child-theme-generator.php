@@ -1,5 +1,7 @@
 <?php
-	$list_theme = get_option( 'list_theme' );
+	$list_theme      = get_option( 'list_theme' );
+	$show_list_theme = get_option( 'show_list_theme' );
+	$selected        = ( 'show' == $show_list_theme ) ? 'checked' : '';
 ?>
 		<div class="wt-setting-page">
 			<div class="header">
@@ -10,6 +12,14 @@
 					<form method="post" action="options.php">
 						<?php settings_fields( 'generator_setting' ); ?>
 						<table>
+							<tr valign="middle">
+								<th scope="row"><label for="list-theme"><?php echo esc_html__( 'Show List Theme', 'boostify' ); ?></label></th>
+								<td>
+									<span class="input-group">
+										<input type="checkbox" value="show" name="show_list_theme" class="input-show-list-theme" id="show-list-theme" <?php echo esc_attr( $selected ); ?>>
+									</span>
+								</td>
+							</tr>
 
 							<tr valign="middle">
 								<th scope="row"><label for="list-theme"><?php echo esc_html__( 'List Theme', 'boostify' ); ?></label></th>

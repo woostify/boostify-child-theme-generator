@@ -93,6 +93,16 @@ class Admin {
 				'sanitize_callback' => 'sanitize_text_field',
 			)
 		);
+
+		register_setting(
+			'generator_setting',
+			'show_list_theme',
+			array(
+				'type'              => 'string',
+				'show_in_rest'      => true,
+				'sanitize_callback' => 'sanitize_text_field',
+			)
+		);
 	}
 
 	public function generator() {
@@ -103,7 +113,7 @@ class Admin {
 		$author_uri  = ( isset( $_POST['author_uri'] ) && !empty( $_POST['author_uri'] ) ) ? $_POST['author_uri'] : 'https://woostify.com/';
 		$description = ( isset( $_POST['description'] ) && !empty( $_POST['description'] ) ) ? $_POST['description'] : 'Woostify WordPress theme example child theme.';
 		$folder      = ( isset( $_POST['folder'] ) && ! empty( $_POST['folder'] ) ) ? $_POST['folder'] : 'woostify-child';
-		$template = ( isset( $_POST['template'] ) && ! empty( $_POST['template'] ) ) ? $_POST['template'] : 'woostify';
+		$template = ( array_key_exists( 'template', $_POST ) && isset( $_POST['template'] ) && ! empty( $_POST['template'] ) ) ? $_POST['template'] : 'woostify';
 		$plugin      = str_replace( home_url( '/' ), '', BOOSTIFY_GENERATOR_URL );
 		$file_path = '../' . $plugin . 'child-theme/';
 
