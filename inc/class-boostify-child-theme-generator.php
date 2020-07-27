@@ -42,9 +42,6 @@ class Boostify_Child_Theme_Generator {
 		?>
 		<div class="boostify-child-theme-generator">
 			<div class="child-theme-generator">
-				<div class="header">
-					<h2 class="heading"><?php echo esc_html__( 'Boostify Child Theme Generator', 'boostify' ); ?></h2>
-				</div>
 				<div class="boostify-form-generator">
 					<div class="form-generator-wrapper">
 						<form action="POST" class="form-generator" enctype="multipart/form-data">

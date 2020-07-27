@@ -24,7 +24,7 @@
 							<tr valign="middle">
 								<th scope="row"><label for="list-theme"><?php echo esc_html__( 'List Theme', 'boostify' ); ?></label></th>
 								<td>
-									<input type="text" value="<?php echo esc_html( $list_theme ); ?>" name="list_theme" class="input-list-theme">
+									<textarea name="list_theme" id="input-list-theme" class="input-list-theme" cols="30" rows="10"><?php echo esc_html( $list_theme ); ?></textarea>
 								</td>
 							</tr>
 
