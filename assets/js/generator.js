@@ -17,7 +17,6 @@
 			data += '&action=boostify_generator&_ajax_nonce=' + admin.nonce;
 			var formData = new FormData();
 			var fileData = $( '.boostify-form-generator' ).find( '.input-screenshort' );
-
 			formData.append( 'screen', fileData[0].files[0]);
 			formData.append( 'name', name );
 			formData.append( 'version', ver );
@@ -42,9 +41,6 @@
 					dataType: 'json',
 					processData: false,
 					contentType: false,
-					beforeSend: function (response) {
-
-					},
 					success: function (response) {
 						console.log( response );
 						window.location.href = response.data;

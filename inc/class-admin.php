@@ -180,11 +180,13 @@ class Admin {
 
 		$zip->close();
 		//then send the headers to force download the zip file
+		header("Pragma: public");
+		header('Cache-Control: public');
 		header("Content-type: application/zip"); 
-		header("Content-Disposition: attachment; filename=" . $archive_file_name);
 		header("Content-length: " . filesize( $archive_file_name ) );
 		header("Pragma: no-cache"); 
-		header("Expires: 0"); 
+		header("Expires: 0");
+		header("Content-Disposition: attachment; filename=" . $archive_file_name);
 	}
 }
 
