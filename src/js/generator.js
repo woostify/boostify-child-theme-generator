@@ -42,8 +42,15 @@
 					processData: false,
 					contentType: false,
 					success: function (response) {
-						console.log( response );
-						window.location.href = response.data;
+						// console.log( response );
+						// window.location.href = response.data;
+						e.preventDefault();
+						var link = document.createElement('a');
+						link.href = response.data;
+						// if (result.file != "") {
+						// 	link.download = result.file;
+						// }
+						link.click();
 					},
 				}
 			);
@@ -54,7 +61,6 @@
 		var fileData = $(this);
 		var formData = new FormData();
 		formData.append("logo", fileData[0].files[0]);
-		console.log( fileData );
 	});
 
 } )( jQuery );
