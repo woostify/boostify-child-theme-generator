@@ -29,27 +29,21 @@
 			if ( template != undefined ) {
 				formData.append( 'template', template );
 			}
-			var data     = {
-				action: 'boostify_generator',//boostify_hf_post_admin
-				_ajax_nonce: admin.nonce,
-			};
+
 			$.ajax(
 				{
 					type: 'POST',
 					url: admin.url,
 					data: formData,
-					dataType: 'json',
 					processData: false,
 					contentType: false,
+					cache : false,
 					success: function (response) {
 						// console.log( response );
 						// window.location.href = response.data;
 						e.preventDefault();
 						var link = document.createElement('a');
 						link.href = response.data;
-						// if (result.file != "") {
-						// 	link.download = result.file;
-						// }
 						link.click();
 					},
 				}
