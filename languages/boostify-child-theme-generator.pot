@@ -1,4 +1,4 @@
-# Copyright (C) 2020 boostify-child-theme-generator
+# Copyright (C) 2021 boostify-child-theme-generator
 # This file is distributed under the same license as the boostify-child-theme-generator package.
 msgid ""
 msgstr ""
@@ -13,43 +13,43 @@ msgstr ""
 "X-Poedit-SourceCharset: UTF-8\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
-#: inc/class-boostify-child-theme-generator.php:49
+#: inc/class-boostify-child-theme-generator.php:54
 msgid "Child Theme Name"
 msgstr ""
 
-#: inc/class-boostify-child-theme-generator.php:54
+#: inc/class-boostify-child-theme-generator.php:59
 msgid "Child Theme Version"
 msgstr ""
 
-#: inc/class-boostify-child-theme-generator.php:59
+#: inc/class-boostify-child-theme-generator.php:64
 msgid "Author"
 msgstr ""
 
-#: inc/class-boostify-child-theme-generator.php:64
+#: inc/class-boostify-child-theme-generator.php:69
 msgid "Author URI"
 msgstr ""
 
-#: inc/class-boostify-child-theme-generator.php:69
+#: inc/class-boostify-child-theme-generator.php:74
 msgid "Description"
 msgstr ""
 
-#: inc/class-boostify-child-theme-generator.php:74
+#: inc/class-boostify-child-theme-generator.php:79
 msgid "Folder Name"
 msgstr ""
 
-#: inc/class-boostify-child-theme-generator.php:79
+#: inc/class-boostify-child-theme-generator.php:84
 msgid "Template"
 msgstr ""
 
-#: inc/class-boostify-child-theme-generator.php:90
+#: inc/class-boostify-child-theme-generator.php:95
 msgid "ScreenShort"
 msgstr ""
 
-#: inc/class-boostify-child-theme-generator.php:91
+#: inc/class-boostify-child-theme-generator.php:96
 msgid "Dimensions: 1200×900 (recommended) or 880×660 / Max. Size: 2 MB"
 msgstr ""
 
-#: inc/class-boostify-child-theme-generator.php:96
+#: inc/class-boostify-child-theme-generator.php:101
 msgid "Generator"
 msgstr ""
 

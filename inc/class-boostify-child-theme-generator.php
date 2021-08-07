@@ -39,12 +39,17 @@ class Boostify_Child_Theme_Generator {
 		$list_theme      = get_option( 'list_theme' );
 		$show_list_theme = get_option( 'show_list_theme' );
 		$list_theme      = explode( ', ', $list_theme );
+		$url             = BOOSTIFY_GENERATOR_URL . 'inc/form-action.php';
 		?>
 		<div class="boostify-child-theme-generator">
 			<div class="child-theme-generator">
 				<div class="boostify-form-generator">
 					<div class="form-generator-wrapper">
-						<form action="POST" class="form-generator" enctype="multipart/form-data">
+						<form action="<?php echo esc_url( $url ); ?>" method="POST" class="form-generator" enctype="multipart/form-data">
+							<?php wp_nonce_field( 'boostify_generator', 'boostify_generator' ); ?>
+							<input type="hidden" name="action" value="boostify_generator">
+							<input type="hidden" name="site_url" value="<?php echo home_url('/'); ?>">
+							<input type="hidden" name="plugin_url" value="<?php echo BOOSTIFY_GENERATOR_URL; ?>">
 							<div class="form-group">
 								<label for="name" class="form-label"><?php echo esc_html__( 'Child Theme Name', 'boostify' ); ?></label>
 								<input type="text" id="name" name="name" class="form-input input-name" placeholder="Woostify Child">

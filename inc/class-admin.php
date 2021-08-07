@@ -37,6 +37,8 @@ class Admin {
 		add_action( 'wp_ajax_nopriv_boostify_generator', array( $this, 'generator' ) );
 		add_action( 'admin_init', array( $this, 'register_settings' ) );
 		add_action( 'rest_api_init', array( $this, 'register_settings' ) );
+		add_action( 'admin_post_nopriv_boostify_generator', array( $this, 'generator' ) );
+		add_action( 'admin_post_boostify_generator', array( $this, 'generator' ) );
 	}
 
 	// Register Page Setting
@@ -106,7 +108,6 @@ class Admin {
 	}
 
 	public function generator() {
-		// check_ajax_referer( '_ajax_nonce','generator_nonce' );
 		$name        = ( isset( $_POST['name'] ) && ! empty( $_POST['name'] ) ) ? $_POST['name'] : 'Woostify Child';
 		$author      = ( isset( $_POST['author'] ) && ! empty( $_POST['author'] ) ) ? $_POST['author'] : 'Woostify';
 		$version     = ( isset( $_POST['version'] ) && !empty( $_POST['version'] ) ) ? $_POST['version'] : '1.0.0';
@@ -159,7 +160,7 @@ class Admin {
 		$url = home_url( '/' ) . $plugin . 'child-theme/' . $archive_file_name;
 
 		wp_send_json_success( $url );
-		die($name);
+		die();
 	}
 
 	function zip_files_and_download( $file_names, $archive_file_name, $file_path) {
