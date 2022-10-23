@@ -105,6 +105,26 @@ class Admin {
 				'sanitize_callback' => 'sanitize_text_field',
 			)
 		);
+
+		register_setting(
+			'generator_setting',
+			'woostify_recaptcha_v3_site_key',
+			array(
+				'type'              => 'string',
+				'show_in_rest'      => true,
+				'sanitize_callback' => 'sanitize_text_field',
+			)
+		);
+
+		register_setting(
+			'generator_setting',
+			'woostify_recaptcha_v3_secret_key',
+			array(
+				'type'              => 'string',
+				'show_in_rest'      => true,
+				'sanitize_callback' => 'sanitize_text_field',
+			)
+		);
 	}
 
 	public function generator() {

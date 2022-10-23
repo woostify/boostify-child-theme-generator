@@ -2,6 +2,10 @@
 
 if ( isset( $_POST['boostify_generator'] ) ) {
 
+	if ( isset( $_POST['g-recaptcha'] ) && isset( $_POST['g-recaptcha-response'] ) && empty( $_POST['g-recaptcha-response'] ) ) {
+		echo esc_html__( 'Please check the the captcha form.' );
+		return;
+	}
 	$url = $name        = ( isset( $_POST['site_url'] ) && ! empty( $_POST['site_url'] ) ) ? $_POST['site_url'] : '';
 	$plugin_url = $name        = ( isset( $_POST['plugin_url'] ) && ! empty( $_POST['plugin_url'] ) ) ? $_POST['plugin_url'] : '';
 

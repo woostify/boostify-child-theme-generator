@@ -40,6 +40,8 @@ class Boostify_Child_Theme_Generator {
 		$show_list_theme = get_option( 'show_list_theme' );
 		$list_theme      = explode( ', ', $list_theme );
 		$url             = BOOSTIFY_GENERATOR_URL . 'inc/form-action.php';
+		$site_key        = get_option( 'woostify_recaptcha_v3_site_key' );
+		$secret_key      = get_option( 'woostify_recaptcha_v3_secret_key' );
 		?>
 		<div class="boostify-child-theme-generator">
 			<div class="child-theme-generator">
@@ -97,7 +99,13 @@ class Boostify_Child_Theme_Generator {
 								</label>
 								<input type="file" id="screenshort" name="screenshort" class="form-input input-screenshort">
 							</div>
-
+							<?php if ( $site_key && $secret_key ): ?>
+								<div class="field-control fiel-recaptcha">
+									<input type="hidden" value="<?php echo esc_html( $site_key ); ?>" name="g-recaptcha">
+									<div id="g-recaptcha-generator" class="g-recaptcha"></div>
+								</div>
+							<?php endif ?>
+							<div class="generator-form-message"></div>
 							<button class="btn-generator btn-submit" type="submit"><?php echo esc_html__( 'Generator', 'boostify' ); ?></button>
 						</form>
 					</div>
@@ -109,25 +117,35 @@ class Boostify_Child_Theme_Generator {
 
 	public function load_style()
 	{
-		$suffix = ( defined( 'SCRIPT_DEBUG' ) && SCRIPT_DEBUG ) ? '' : '.min';
+		$site_key   = get_option( 'woostify_recaptcha_v3_site_key' );
+		$secret_key = get_option( 'woostify_recaptcha_v3_secret_key' );
+		$suffix     = ( defined( 'SCRIPT_DEBUG' ) && SCRIPT_DEBUG ) ? '' : '.min';
 		wp_enqueue_style(
 			'boostify-child-theme-generator',
 			BOOSTIFY_GENERATOR_URL . 'assets/css/style.css',
 			array(),
 			BOOSTIFY_GENERATOR_VER
 		);
-
+		wp_register_script(
+			'google-recaptcha',
+			'https://www.google.com/recaptcha/api.js?render=' . $site_key,
+			array( 'jquery' ),
+			BOOSTIFY_GENERATOR_VER,
+			true
+		);
 		wp_enqueue_script(
 			'boostify-child-theme-generator',
 			BOOSTIFY_GENERATOR_URL . 'assets/js/generator' . $suffix . '.js',
-			array( 'jquery' ),
+			array( 'jquery', 'google-recaptcha' ),
 			BOOSTIFY_GENERATOR_VER,
 			true
 		);
 
 		$admin_vars = array(
-			'url'   => admin_url( 'admin-ajax.php' ),
-			'nonce' => wp_create_nonce( 'generator_nonce' ),
+			'url'        => admin_url( 'admin-ajax.php' ),
+			'nonce'      => wp_create_nonce( 'generator_nonce' ),
+			'site_key'   => $site_key,
+			'secret_key' => $secret_key,
 		);
 
 		wp_localize_script(
