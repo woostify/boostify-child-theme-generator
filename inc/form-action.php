@@ -19,14 +19,14 @@ if ( isset( $_POST['boostify_generator'] ) ) {
 	$plugin      = str_replace( $url, '', $plugin_url );
 	$file_path = '../child-theme/';
 
-	if ( array_key_exists( 'screen', $_FILES ) ) {
-		$screen = $_FILES['screen'];
+	if ( array_key_exists( 'screenshort', $_FILES ) ) {
+		$screen = $_FILES['screenshort'];
 		$filename = $screen['name'];
 		$imageFileType = strtolower(pathinfo($filename,PATHINFO_EXTENSION));
 		$plugin = str_replace( $url, '', $plugin_url );
 		$location = '../child-theme/screenshot.' . $imageFileType;
 		if( $imageFileType == "png" || $imageFileType == "jpg" ) {
-			if (move_uploaded_file($_FILES["screen"]["tmp_name"], $location)) {
+			if (move_uploaded_file($_FILES["screenshort"]["tmp_name"], $location)) {
 				$fileUpload = true;
 			} else {
 				$fileUpload = false;

@@ -99,7 +99,7 @@ class Boostify_Child_Theme_Generator {
 								</label>
 								<input type="file" id="screenshort" name="screenshort" class="form-input input-screenshort">
 							</div>
-							<?php if ( $site_key && $secret_key ): ?>
+							<?php if ( ! empty( $site_key ) && ! empty( $secret_key ) ): ?>
 								<div class="field-control fiel-recaptcha">
 									<input type="hidden" value="<?php echo esc_html( $site_key ); ?>" name="g-recaptcha">
 									<div id="g-recaptcha-generator" class="g-recaptcha"></div>
@@ -126,13 +126,17 @@ class Boostify_Child_Theme_Generator {
 			array(),
 			BOOSTIFY_GENERATOR_VER
 		);
-		wp_register_script(
-			'google-recaptcha',
-			'https://www.google.com/recaptcha/api.js?render=' . $site_key,
-			array( 'jquery' ),
-			BOOSTIFY_GENERATOR_VER,
-			true
-		);
+
+		if ( ! empty( $site_key ) && ! empty( $secret_key ) ) {
+			wp_register_script(
+				'google-recaptcha',
+				'https://www.google.com/recaptcha/api.js?render=' . $site_key,
+				array( 'jquery' ),
+				BOOSTIFY_GENERATOR_VER,
+				true
+			);
+		}
+
 		wp_enqueue_script(
 			'boostify-child-theme-generator',
 			BOOSTIFY_GENERATOR_URL . 'assets/js/generator' . $suffix . '.js',
