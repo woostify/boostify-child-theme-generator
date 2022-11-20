@@ -42,6 +42,12 @@ class Boostify_Child_Theme_Generator {
 		$url             = BOOSTIFY_GENERATOR_URL . 'inc/form-action.php';
 		$site_key        = get_option( 'woostify_recaptcha_v3_site_key' );
 		$secret_key      = get_option( 'woostify_recaptcha_v3_secret_key' );
+		$flu_option      = get_option( '_fluentform_reCaptcha_details' );
+
+		if ( defined( 'FLUENTFORM' ) && $flu_option ) {
+			$site_key   = $flu_option['siteKey'];
+			$secret_key = $flu_option['secretKey'];
+		}
 		?>
 		<div class="boostify-child-theme-generator">
 			<div class="child-theme-generator">
@@ -119,7 +125,13 @@ class Boostify_Child_Theme_Generator {
 	{
 		$site_key   = get_option( 'woostify_recaptcha_v3_site_key' );
 		$secret_key = get_option( 'woostify_recaptcha_v3_secret_key' );
+		$flu_option = get_option( '_fluentform_reCaptcha_details' );
 		$suffix     = ( defined( 'SCRIPT_DEBUG' ) && SCRIPT_DEBUG ) ? '' : '.min';
+
+		if ( defined( 'FLUENTFORM' ) && $flu_option ) {
+			$site_key   = $flu_option['siteKey'];
+			$secret_key = $flu_option['secretKey'];
+		}
 		wp_enqueue_style(
 			'boostify-child-theme-generator',
 			BOOSTIFY_GENERATOR_URL . 'assets/css/style.css',
