@@ -106,13 +106,17 @@ class Boostify_Child_Theme_Generator {
 								<input type="file" id="screenshort" name="screenshort" class="form-input input-screenshort">
 							</div>
 							<?php if ( ! empty( $site_key ) && ! empty( $secret_key ) ): ?>
-								<div class="field-control fiel-recaptcha">
-									<input type="hidden" value="<?php echo esc_html( $site_key ); ?>" name="g-recaptcha">
-									<div id="g-recaptcha-generator" class="g-recaptcha"></div>
-								</div>
+
+
 							<?php endif ?>
 							<div class="generator-form-message"></div>
-							<button class="btn-generator btn-submit" type="submit"><?php echo esc_html__( 'Generator', 'boostify' ); ?></button>
+							<?php if ( ! empty( $site_key ) && ! empty( $secret_key ) ): ?>
+
+								<button class="btn-generator btn-submit" type="submit" data-action='submit' data-sitekey="<?php echo esc_html( $site_key ); ?>" ><?php echo esc_html__( 'Generator', 'boostify' ); ?></button>
+							<?php else : ?>
+								<button class="btn-generator btn-submit g-recaptcha" type="submit" data-action='submit' data-sitekey="<?php echo esc_html( $site_key ); ?>" ><?php echo esc_html__( 'Generator', 'boostify' ); ?></button>
+							<?php endif ?>
+							
 						</form>
 					</div>
 				</div>
@@ -128,7 +132,7 @@ class Boostify_Child_Theme_Generator {
 		$flu_option = get_option( '_fluentform_reCaptcha_details' );
 		$suffix     = ( defined( 'SCRIPT_DEBUG' ) && SCRIPT_DEBUG ) ? '' : '.min';
 
-		if ( defined( 'FLUENTFORM' ) && $flu_option ) {
+		if ( defined( 'FLUENTFORM' ) && ! empty( $flu_option ) ) {
 			$site_key   = $flu_option['siteKey'];
 			$secret_key = $flu_option['secretKey'];
 		}
@@ -139,7 +143,7 @@ class Boostify_Child_Theme_Generator {
 			BOOSTIFY_GENERATOR_VER
 		);
 
-		if ( ! empty( $site_key ) && ! empty( $secret_key ) ) {
+		if ( empty( $flu_option ) && ! empty( $site_key ) ) {
 			wp_register_script(
 				'google-recaptcha',
 				'https://www.google.com/recaptcha/api.js?render=' . $site_key,
