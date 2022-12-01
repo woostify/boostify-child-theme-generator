@@ -101,7 +101,7 @@ class Boostify_Child_Theme_Generator {
 							<div class="form-group">
 								<label for="screenshort" class="form-label">
 									<?php echo esc_html__( 'ScreenShort', 'boostify' ); ?>
-									<small class="form-notice small"><?php echo esc_html__( 'Dimensions: 1200×900 (recommended) or 880×660 / Max. Size: 2 MB', 'boostify' ); ?></small>
+									<small class="form-notice small"><?php echo esc_html__( 'Dimensions: 1200×900 (recommended) or 880×660 / Max. Size: 2 MB. File type is png', 'boostify' ); ?></small>
 								</label>
 								<input type="file" id="screenshort" name="screenshort" class="form-input input-screenshort">
 							</div>

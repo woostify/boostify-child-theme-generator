@@ -25,7 +25,7 @@ if ( isset( $_POST['boostify_generator'] ) ) {
 		$imageFileType = strtolower(pathinfo($filename,PATHINFO_EXTENSION));
 		$plugin = str_replace( $url, '', $plugin_url );
 		$location = '../child-theme/screenshot.' . $imageFileType;
-		if( $imageFileType == "png" || $imageFileType == "jpg" ) {
+		if( $imageFileType == "png" ) {
 			if (move_uploaded_file($_FILES["screenshort"]["tmp_name"], $location)) {
 				$fileUpload = true;
 			} else {
@@ -51,7 +51,6 @@ if ( isset( $_POST['boostify_generator'] ) ) {
 	$file_names = array(
 		'functions.php',
 		'screenshot.png',
-		'screenshot.jpg',
 		'style.css',
 	);
 
